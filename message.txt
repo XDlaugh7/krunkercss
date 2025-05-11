@@ -1,0 +1,1554 @@
+
+
+:root{
+  --main-color: white;
+  --hover-color: black;
+  --black: black;
+  --white: #FDFFFC;
+  --div-grey: rgb(255 255 255 / 0%);
+  --div-black: rgb(255 255 255 / 0%);
+}
+
+/*Japanese/Chinese*/
+@font-face {
+  font-family: JP;
+  src: url(https://dl.dropboxusercontent.com/s/umq56c3rfoj0xqu/corp_round_v1.ttf?dl=0);
+}
+/* mainfont */
+@font-face {
+  font-family:gamefont;
+  src:url(https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2);
+}
+/* krunker default font (krfont)*/
+@font-face {
+  font-family: krfont;
+  src: url(https://www.dl.dropboxusercontent.com/s/gbs6x43vwhuyzf9/fff%20forward.ttf?dl=0);
+}
+
+
+/* SIDE MENU BUTTONS */
+.menBtnIcn {
+  color: var(--main-color) !important;
+}
+
+.menuItem:hover .menBtnIcn {
+  color: var(--hover-color) !important;
+transform: scale(.9) rotate(10deg);
+transition: .5s;
+}
+
+#menuItemContainer, #compClassPHolder, #compBtnLst{
+  background: transparent;
+}
+
+.compMenBtnS, .compSwpTmB {
+  background-color: white !important;
+  border: 0px;
+}
+
+.compClassPItm, .compPLstIcn {
+  border: 4px solid var(--main-color) !important;
+}
+
+.cmpTmHed {
+  color: var(--hover-color);
+  text-shadow: 0px 0px 0 !important;
+}
+
+.compTScrB {
+background: var(--black) !important;
+}
+
+
+
+
+/* IN GAME HUD ----------------------------------------------------------------------------------------------------------*/
+/* HEALTH */
+
+#bottomLeftHealthBar {
+  width: 330px;
+  display: inline-flex;
+  justify-content: center;
+  background-color: #2c2c2c !important;
+  position: fixed;
+column-gap: 0px;
+  padding: 0;
+  left: 50%;
+  bottom: 137px;
+  outline: 3px solid var(--hover-color);
+  border-radius: 0;
+  transform: skewX(-24deg) translateX(calc(-50% - 200px));
+}
+
+
+.nHealthBarSeg {
+  width: 330px;
+  height: 14px;
+  margin-left: -3px;
+  border-radius: 0;
+  background-color: transparent !important ;
+}
+
+.nHpBSeg {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.nHpBSeg {
+  background-color: var(--main-color) !important;
+}
+
+#bottomLeftHealth {
+  width: unset !important;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  left: calc(50% + 30px);
+  bottom: 10px;
+  color: var(--main-color) !important;
+  font-size: 35px;
+  text-align: left !important;
+  transform: translateX(calc(-50% - 360px)) translateY(-141px);
+  background-color: transparent !important ;
+  text-shadow: 2px 4px 6px rgb(30, 30, 30);
+}
+
+
+/* RELOAD BAR */
+#ammoVal {
+  width: 100%;
+  text-shadow: 2px 4px 6px rgb(30, 30, 30);
+  position: fixed;
+  bottom: 20px;
+  right: calc(50% - 270px);
+  color: white;
+  font-size: 57.75px;
+  transform: skewX(-30deg);
+  text-align: right;
+}
+
+#ammoHolder  {
+  width: 481px;
+  height: 20px;
+  background-image:linear-gradient(to right,rgb(44, 44, 44),rgb(44, 44, 44));
+  background-color: var(--main-color);
+  border-radius: 0;
+  outline: 5px solid var(--hover-color);
+  position: fixed;
+  left: 50%;
+  bottom: 134px;
+  transform: translateX(calc(-50% + 201px)) skewX(30deg) scale(.65) !important;
+  
+}
+
+/* WEAPON DISPLAY */
+/* Weapon Item Styling */
+.weapItem {
+  position: absolute;
+  opacity: 0 !important;
+  transition-duration: 0.25s;
+  height: 0;
+  width: 500px;
+  position: fixed !important;
+  bottom: 2%;
+  right: calc(50% - 60px) !important;
+  opacity: 0 !important;
+  color: #fff;
+  background-color: rgb(20 20 20 / 0%);
+}
+
+.weapIcon {
+  height: 55%;
+  width: 55%;
+}
+
+#weapDisplay {
+  position: fixed;
+  right: 50% !important;
+}
+
+.weapItem[style*="1"] {
+  opacity: 1 !important;
+  height: 80px;
+}
+
+.weapSkin {
+  display: none !important;
+}
+
+.weapItemInner {
+  color: rgba(255, 255, 255, .7);
+  background-color: rgb(108 108 108 / 0%);
+}
+
+.weapSkin {
+  background-color: rgb(20 20 20 / 0%);
+  color: #ffffffcf;
+  display: none;
+}
+
+.weapKey {
+  color: #fff;
+  font-size: 14px;
+  position: absolute;
+  background-color: rgb(0 0 0 / 0%);
+  display: none;
+}
+
+.weapStreakHolder {
+  background-color: rgb(20 20 20 / 0%);
+  color: #fff;
+}
+
+.weapStreakInner {
+  color: rgb(255 255 255);
+  background-color: rgb(108 108 108 / 0%);
+  display: none;
+}
+
+/* DO NOT DISPLAY */
+#newsHolder, #headerRight, 
+.compPlWepsL,
+#compTimBox, #tlInfHold, #rankedSoonTm,
+#seasonLabel, #voiceDisplay, #cmpStatBarH,
+#faceItIconM, .menuItemTitle, 
+#topRightAdHolder, #streamContainer,
+#cmpDatBox, #cmpPartnerImg,
+.weapKey, #mainLogoFace, #ammoMax,
+#menuWindow::-webkit-scrollbar, #chatList::-webkit-scrollbar,
+#ammoIcon, #maxHP, #timerIcon, #challIcon{
+  display: none !important;
+}
+
+#bottomLeftChallIcon {
+  display: none;
+}
+
+#bottomLeftPlayer {
+  background-color: transparent;
+}
+#bottomLeftPlayerLeft {
+  background-color: transparent;
+}
+
+#bottomLeftTeamType{
+  display: none
+}
+#bottomLeftTeamName {
+  display: none;
+}
+
+#bottomLeftPlayerRight {
+  background-color: rgb(108 108 108 / 0%);
+}
+
+.greyInner, .greyInlineInner, .greyInlineInnerMid {
+  background-color: rgb(108 108 108 / 0%);
+}
+
+.voiceOff:after {
+  display: none !important;
+}
+#recTimer {
+  display: none !important;
+}
+
+/* top left */
+
+#mLevelCont,
+.headerBarLeft,
+.headerBarRight {
+background-color: transparent;
+}
+
+#menuAccountUsername {
+font-size  : 23px;
+padding-top: 4px;
+padding-left: 6px;
+}
+
+.verticalSeparator {
+opacity:0
+}
+
+.progressBar {
+height: 8px;
+margin-top: -4px;
+background-color: rgba(0, 0, 0, 0.15);
+}
+
+#menuMiniProfilePic,#profilePicM{
+  content: url("https://github.com/OneInsightCoder/imgs/blob/main/fish%20sleep.gif?raw=true");
+  filter: brightness(1);
+  image-rendering: auto;
+}
+
+.progressBarInner {
+background-image: url("https://github.com/OneInsightCoder/imgs/blob/main/raybow.gif?raw=true");
+}
+
+#mailContainer {  
+padding-bottom: 3px;
+}
+
+#mLevelContV {
+font-size  : 60px;
+}
+
+.krInfo {
+font-size: 20px !important;
+position : fixed;
+top      : 89px;
+left     : 20px;
+}
+
+.junkInfo {
+font-size: 20px !important;
+position : fixed;
+top      : 94px;
+left     : 140px;
+}
+
+/* rainbow CLAN */
+.leaderNameM span {
+-webkit-animation: rainbow .5s linear infinite;
+animation: rainbow .5s linear infinite
+}
+
+.endTableN span[style="color:#fff"]::after {
+-webkit-animation: rainbow .5s linear infinite;
+animation: rainbow .5s linear infinite
+}
+
+
+
+#menuKRCount:before {
+content:'$';
+color: #69cd4d
+} 
+#menuKRCount span {font-size:0}
+
+/* junk icon to grey */
+#menuJNKCount {
+filter: grayscale(1);
+}
+
+/* MAIN LOGO */
+#mainLogo {
+  position: fixed;
+  top: 50px;
+  content: url("https://github.com/OneInsightCoder/imgs/blob/main/guy.PNG?raw=true");
+}
+
+#gameNameHolder {
+  pointer-events: all;
+  font-size: 0;
+  color: transparent;
+  transition: 0.5s;
+}
+
+#gameNameHolder:hover {
+  font-size: 30px;
+  color: #fff;
+}
+#gameNameHolder::after {
+  position: fixed;
+  top: 400px;
+  text-align: center;
+  content: "css by sealfr0";
+  display: block;
+  font-family: 'ISOCP';
+}
+
+/* check button why not */
+.slider{
+width:36px;
+height:36px;
+border-radius:0px;
+background:transparent !important;
+border:4px white solid;
+top:unset;
+}
+
+/* on slider */
+input:checked+.slider:before{
+background:lime;
+top:4px;
+left:4px;
+transform:unset;
+height:28px;
+border-radius:0px;
+width:28px;
+}
+
+/* off slider */
+.slider:before{
+background-color:rgb(0, 0, 0);
+top:4px;
+left:4px;
+transform:unset;
+height:28px;
+border-radius:0px;
+width:28px;
+}
+
+/* ping to ms */
+#pingDisplay {
+font-size: 0px;
+margin-bottom: 5px
+}
+#pingText::after {
+content: " ms" !important;
+color: rgb(174 174 174 / 50%)
+}
+#menuPingDisplay::after {
+content: ' ms'
+}
+#menuPingText {
+color: white
+}
+
+
+
+/* spectate cred oranda4040 */
+
+#uiBase.onMenu #spectButton {
+z-index: 0;
+width: 48px;
+top: 51%;
+transform: translate(-50%, -50%)
+}
+
+#spectButton span[style="font-size:15px;color:rgba(255,255,255,.6)"] {
+color: transparent !important;
+font-size: 0px
+}
+
+#spectButton .switchsml {
+margin: 0;
+position: absolute;
+width: 100%
+}
+
+.sliderSml {
+opacity: 1
+}
+
+.sliderSml::before {
+content: "Spectate";
+font-size: 20px;
+color: white;
+width: max-content;
+height: auto;
+background-color: transparent;
+text-align: center;
+transition-duration: 0.25s
+}
+
+.sliderSml::before {
+content: "play_arrow";
+font-size: 35px;
+color: white;
+width: max-content;
+height: auto;
+background-color: transparent;
+text-align: center;
+transition-duration: 0.25s;
+font-family: 'Material Icons';
+text-shadow: var(--text-shadow)
+}
+
+input:checked+.sliderSml::before {
+content: "visibility";
+color: white;
+transform: unset
+}
+
+input:checked+.sliderSml {
+background-color: transparent !important
+}
+
+.sliderSml {
+opacity: 1;
+background-color: transparent
+}
+
+.menuItem .menuItemTitle,#instructions, 
+#editorBtnM {
+    display: none !important
+}
+
+#pollfishIndicator{display:none!important}
+
+/* text in corner*/
+.standout:after{
+content: var(--WaterMark);
+color: rgb(252, 0, 0) !important;
+filter: drop-shadow(2px 2px var(--black)) drop-shadow(-2px -2px var(--black)) drop-shadow(-2px 2px var(--black)) drop-shadow(2px -2px var(--black));
+cursor: default;
+font-family: Georgia, serif;
+visibility: visible!important;
+font-size: 30px;
+  position:fixed;
+}
+
+.terms {
+visibility:hidden !important;
+}
+
+.verticalSeparatorInline {
+display:none !important;
+}
+
+#termsInfo {
+  background-color: rgb(0 0 0 / 0%);
+  padding: 5px 15px 15px 20px;
+  border-top-left-radius: 6px;
+  margin-right: -150px;
+}
+
+/* make menu guys popup when u hover over the customize button */
+#menuClassContainer:hover #classPreviewCanvas {
+transform: unset !important;
+}
+
+#classPreviewCanvas {
+transform: translateY(5000000px);
+margin-bottom: -135px;
+margin-right: -113px;
+}
+
+.bigShadowT {
+text-shadow: none !important
+}
+
+/* customize button */
+#customizeButton {
+width: 250px;
+height: 20px;
+font-size: 0px !important;
+border-color: white !important;
+border-width: 3px !important;
+right: 10px;
+}
+
+/* white icons for kpd etc */
+
+.greyInner,
+.greyInlineInner,
+.greyInlineInnerMid {
+margin: 3px;
+background-color: rgb(108 108 108 / 0%);
+padding: 5px;
+}
+
+.buttonO {
+border: 4px solid #ffffff !important;
+}
+
+.button {
+background-color: rgb(0 0 0) !important;
+border: hidden;
+}
+
+.buttonP,
+.buttonR,
+.buttonPI,
+.buttonG {
+border: 4px solid #ffffff !important;
+}
+
+#policeButton {
+border: 4px solid #ffffff !important;
+}
+
+#mapInfoHld {
+border-bottom: 5px solid #ffffff;
+}
+
+/*fake verified*/
+
+.endTableN span[style="color:#fff"]::before {
+  font-family: 'Material Icons'; 
+  font-weight: normal;
+  font-style: normal;
+  font-size: 23px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  content: "check_circle";
+  color: #40C4FF;
+  margin-top: -3px;
+  vertical-align: middle;
+  margin-right: 3px;
+  margin-left: -4px;
+}
+
+.leaderNameM::before { 
+  font-family: 'Material Icons'; 
+  font-weight: normal;
+  font-style: normal;
+  font-size: 23px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  content: "check_circle";
+  color: #40C4FF;
+  margin-top: -3px;
+  vertical-align: middle;
+  margin-right: 3px;
+  margin-left: -4px;
+}
+
+/*ui*/
+
+input[type=color],
+.setHed {
+  border: 4px solid #c1a0ff;
+  background-color: black;
+}
+
+input:checked+.slider {
+  background-color: #c1a0ff
+}
+
+/* Menu ui */
+#menuWindow.dark {
+  background-color: #000000b0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: -3px -2px 8px rgb(195 195 195 / 0%);
+  backdrop-filter: blur(8px);
+}
+
+/* Settings */
+.settingsHeader {
+  width: 100%;
+  padding-top: 19px;
+  padding-bottom: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+  z-index: 999999999;
+  background-color: #000;
+  padding-left: 20px;
+  margin-left: -20px;
+}
+
+.material-icons-outlined {
+  color: white !important;
+}
+
+/* menu  */
+
+#windowHolder.popupWin, .settingsHeader, .setBodH, #settingsTabLayout, .settingTab, #selectorContainer {
+  background-color: transparent;
+}
+
+
+#windowHolder {
+    display: block !important;
+}
+
+#windowHolder {
+    display: block !important;
+    opacity: 0;
+    transition-duration: 0.3s;
+}
+
+#windowHolder[style*="block"] {
+    opacity: 1;
+}
+
+#windowHolder[style*="none"] * {
+    pointer-events: none;
+}
+
+.setHed {
+  border: none;
+  background-color: transparent;
+}
+
+        /* Chat */
+
+        #chatInput {
+          border: none;
+          border-radius: 5px;
+      }
+      
+      #chatInputHolder {
+        margin-left: -75px;
+      }
+      
+      .chatItem {
+              font-size: 17px;
+              padding-right: 5px;
+              max-width: unset;
+              background-color: transparent;
+              border: transparent;
+              color: white;
+              text-shadow: 3px 3px 0 rgba(0,0,0,.3);
+              margin-top: 0px !important;
+              margin-bottom: 0px !important;
+      }
+      
+      #chatList {
+              background-color: transparent;
+              -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.75)));
+      }
+      
+      #chatList::-webkit-scrollbar {
+         display:none;
+      }
+      
+      #chatSwitch {
+      position:absolute;
+      right: 6px;
+      display: none
+      }
+
+
+#bottomLeftClassImg{
+position: absolute;
+right: -750px;
+top: -200px;
+display: none
+}
+
+/* class picker */
+#aHolder,#onetrust-consent-sdk {
+  display:none !important;
+}
+
+#hiddenClasses {
+  display: flex !important;
+  flex-direction:row;
+  position:fixed;
+  left:50%;
+  bottom:1%;
+  transform: translate(-50%,-50%);
+  margin-right: 10px;
+}
+#menuClassPicker0[onclick="selectClass(0)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_0.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker0[onclick="selectClass(0)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker1[onclick="selectClass(1)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_1.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker1[onclick="selectClass(1)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker2[onclick="selectClass(2)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_2.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker2[onclick="selectClass(2)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker3[onclick="selectClass(3)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_3.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker3[onclick="selectClass(3)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker4[onclick="selectClass(4)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_4.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker4[onclick="selectClass(4)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker5[onclick="selectClass(5)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_5.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker5[onclick="selectClass(5)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker6[onclick="selectClass(6)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_6.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker6[onclick="selectClass(6)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker7[onclick="selectClass(7)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_7.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker7[onclick="selectClass(7)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker8[onclick="selectClass(8)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_8.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker8[onclick="selectClass(8)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker9[onclick="selectClass(9)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_9.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker9[onclick="selectClass(9)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker10[onclick="selectClass(10)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_10.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker10[onclick="selectClass(10)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker11[onclick="selectClass(11)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_11.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker11[onclick="selectClass(11)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker12[onclick="selectClass(12)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_12.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker12[onclick="selectClass(12)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker13[onclick="selectClass(13)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_13.png?build=uLz7w);
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker13[onclick="selectClass(13)"]:hover {
+  cursor:pointer;
+}
+#menuClassPicker14[onclick="selectClass(14)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_14.png?build=uLz7w);    
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker14[onclick="selectClass(14)"]:hover {
+  cursor:pointer;
+}
+
+#menuClassPicker15[onclick="selectClass(15)"] {
+  display:block;
+  width:50px;
+  height:50px;
+  content:url(https://assets.krunker.io/textures/classes/icon_15.png?build=5R5WfMbRZZjI9jzVGmYYudKp7baEGGxb);    
+  pointer-events:auto;
+  image-rendering:pixelated;
+  margin-right:10px;
+}
+#menuClassPicker15[onclick="selectClass(15)"]:hover {
+  cursor:pointer;
+}
+
+/* class cool stuff */
+.classCard {
+  background-color: transparent;
+  height: 50px;
+  width: 370px;
+  margin-left: 15px;
+  margin-right: 15px;
+  transition-duration: .2s;
+}
+
+.classCard:hover {
+  transition-duration: .3s;
+  height: 90px;
+  transition-delay: .0747s;
+}
+
+.className {
+  font-size: 24px;
+  left: 50px;
+  transition-duration: .2s;
+}
+
+.classCard:hover .className {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classWeap {
+  font-size: 13px;
+  left: 50px;
+  top: 45px;
+  text-shadow: 3px 2px 1px var(--backgroundColour), -2px 2px 1px var(--backgroundColour), 3px -2px 1px var(--backgroundColour), -2px -2px 1px var(--backgroundColour);
+  transition-duration: .2s;
+}
+
+.classImgH {
+  left: -8px;
+  top: -8px;
+}
+
+.classImgC {
+  width: 70px;
+  background-color: rgba(0,0,0,.15);
+  border: 5px outset rgba(0,0,0,.05);
+}
+
+.classHP {
+  display: none;
+}
+
+.classLvl {
+  font-size: 18px;
+  padding: 1px;
+  left: 4px;
+}
+
+.clsXPBarV {
+  font-size: 18px;
+  text-shadow: -1px -1px 0 #202020, 1px -1px 0 #202020, -1px 1px 0 #202020, 1px 1px 0 #202020;
+  top: 1px;
+}
+
+.classCard[onclick="selectClass(0)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(0)"] {
+  background-color: #3d3d3d;
+}
+.classCard[onclick="selectClass(0)"] .className:after {
+  content: " • AK";
+}
+.classCard[onclick="selectClass(0)"] .classWeap:after {
+  content: "100HP • 28 • 23 DMG • 120ms • 1.5s • Sec";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(0)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(0)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(0)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(1)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(1)"] {
+  background-color: #9c6a45;
+}
+.classCard[onclick="selectClass(1)"] .className:after {
+  content: " • Sniper";
+}
+.classCard[onclick="selectClass(1)"] .classWeap:after {
+  content: "60HP • 3 • 106 DMG • 1s • 1.9s • Sec";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(1)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(1)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(1)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(2)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(2)"] {
+  background-color: #5d8eb8;
+}
+.classCard[onclick="selectClass(2)"] .className:after {
+  content: " • SMG";
+}
+.classCard[onclick="selectClass(2)"] .classWeap:after {
+  content: "90HP • 30 • 18 DMG • 95ms • 1s • WJ";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(2)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(2)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(2)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(3)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(3)"] {
+  background-color: #586849;
+}
+.classCard[onclick="selectClass(3)"] .className:after {
+  content: " • LMG";
+}
+.classCard[onclick="selectClass(3)"] .classWeap:after {
+  content: "180HP • 60 • 18 DMG • 130ms • 3.3s • -";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(3)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(3)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(3)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(4)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(4)"] {
+  background-color: #495b68;
+}
+.classCard[onclick="selectClass(4)"] .className:after {
+  content: " • Shotgun";
+}
+.classCard[onclick="selectClass(4)"] .classWeap:after {
+  content: "90HP • 2 • 50(x5) DMG • 450ms • 1.1s • Sec";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(4)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(4)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(4)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(5)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(5)"] {
+  background-color: #8b735a;
+}
+.classCard[onclick="selectClass(5)"] .className:after {
+  content: " • Revolver";
+}
+.classCard[onclick="selectClass(5)"] .classWeap:after {
+  content: "100HP • 6 • 66 DMG • 450ms • .9s • -";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(5)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(5)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(5)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(6)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(6)"] {
+  background-color: #91bf6d;
+}
+.classCard[onclick="selectClass(6)"] .className:after {
+  content: " • Semi";
+}
+.classCard[onclick="selectClass(6)"] .classWeap:after {
+  content: "90HP • 8 • 35 DMG • 150ms • 1.5s • Sec";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(6)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(6)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(6)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(7)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(7)"] {
+  background-color: #84e535;
+}
+.classCard[onclick="selectClass(7)"] .className:after {
+  content: " • RPG";
+}
+.classCard[onclick="selectClass(7)"] .classWeap:after {
+  content: "130HP • 3 • 50+ DMG • 320ms • 1.5s • Sec";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(7)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(7)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(7)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(8)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(8)"] {
+  background-color: #73748a;
+}
+.classCard[onclick="selectClass(8)"] .className:after {
+  content: " • Uzis";
+}
+.classCard[onclick="selectClass(8)"] .classWeap:after {
+  content: "110HP • 28 • 15 DMG • 70ms • 1.3s • WJ";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(8)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(8)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(8)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(9)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(9)"] {
+  background-color: transparent;
+}
+.classCard[onclick="selectClass(9)"] .className:after {
+  content: " • Knife";
+}
+.classCard[onclick="selectClass(9)"] .classWeap:after {
+  content: "120HP • ∞ • 50 DMG • 250ms • - • WJ";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(9)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(9)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(9)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(10)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(10)"] {
+  background-color: #666666;
+}
+.classCard[onclick="selectClass(10)"] .className:after {
+  content: " • Deagle";
+}
+.classCard[onclick="selectClass(10)"] .classWeap:after {
+  content: "60HP • 7 • 45 DMG • 450ms • 1s • -";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(10)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(10)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(10)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(11)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(11)"] {
+  background-color: #f5da59;
+}
+.classCard[onclick="selectClass(11)"] .className:after {
+  content: " • Crossbow";
+}
+.classCard[onclick="selectClass(11)"] .classWeap:after {
+  content: "100HP • 1 • 200 DMG • - • 0.9+s • Sec";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(11)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(11)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(11)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(12)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(12)"] {
+  background-color: #ea7120;
+}
+.classCard[onclick="selectClass(12)"] .className:after {
+  content: " • Famas";
+}
+.classCard[onclick="selectClass(12)"] .classWeap:after {
+  content: "100HP • 30 • 28(x3) DMG • 280ms • 1.2s • Sec";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(12)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(12)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(12)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(13)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(13)"] {
+  background-color: #eeeeee;
+}
+.classCard[onclick="selectClass(13)"] .className:after {
+  content: " • Blaster";
+}
+.classCard[onclick="selectClass(13)"] .classWeap:after {
+  content: "100HP • 16 • 35 DMG • 160ms • 1.45s • WJ";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(13)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(13)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(13)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(14)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(14)"] {
+  background-color: #f0c8c6;
+}
+.classCard[onclick="selectClass(14)"] .className:after {
+  content: " • Build Tool";
+}
+.classCard[onclick="selectClass(14)"] .classWeap:after {
+  content: "150HP • Build Tool uhh idk";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(14)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(14)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(14)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+.classCard[onclick="selectClass(15)"] .classWeap {
+  font-size: 0px;
+}
+.classCard[onclick="selectClass(15)"] {
+  background-color: #feafcb;
+}
+.classCard[onclick="selectClass(15)"] .className:after {
+  content: " • Charge";
+}
+.classCard[onclick="selectClass(15)"] .classWeap:after {
+  content: "90HP • 1 • 15 DMG • 150ms • 1.4s • Sec";
+  font-size: 14px;
+}
+.classCard[onclick="selectClass(15)"] .classImgC {
+  width: 32px;
+  transition-duration: .2s;
+}
+.classCard[onclick="selectClass(15)"]:hover .classImgC {
+  width: 70px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+.classCard[onclick="selectClass(15)"]:hover .classWeap {
+  left: 86px;
+  transition-duration: .3s;
+  transition-delay: .0747s;
+}
+
+/* SPECTATE 
+#uiBase.onMenu #spectateUI {
+  display: block!important;
+}
+
+#uiBase.onMenu #spectateUI>div:not(:nth-child(1)),
+#spectateUI[style*="none"]>div:nth-child(1)>div:not(.spectateInfo),
+#uiBase.onMenu #spec1,
+#uiBase.onMenu #specGameInfo,
+#uiBase.onMenu #spec0{
+  display: none!important
+}
+
+#uiBase.onMenu #spectateUI>div:nth-child(1) {
+  z-index: 9999999;
+  transform: unset;
+}
+
+#uiBase.onMenu .spectateInfo {
+  position: fixed;
+  top: 97.5%;
+  left: 90.5%;
+  translate: -50% -50%;
+}
+
+#uiBase.onMenu #spectateUI>div:nth-child(1)>.spectateInfo>#specTimer {
+  background: transparent;
+  font-size: 40px;
+  font-family: krfont;
+} */
+
+#timerInner.topLeftOld {
+  position:relative;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin: 5px;
+  right:5px;
+   border-radius: 7px;
+  display: inline-block;
+  background-color: #0000003d;
+}
+
+#timerHolder.topLeftOld {
+background-color: #ffffff00;
+border-radius: 5px 5px 5px 5px;
+}
+
+
+#timerIcon {
+  display: none !important;
+}
+
+/* Reload prompt */
+
+#reloadMsg {
+  bottom: calc(30% - 200px);
+  background-color: transparent !important;
+  border: none;
+  color: red;
+  font-size: 0;
+  }
+  
+  #reloadMsg::before {
+  content: '! !';
+  position: center;
+  align-items: center;
+  font-size: 26px;
+  }
+
+/* blur stuff */
+  #uiBase.onMenu {
+    backdrop-filter: blur(3px);
+}
+
+#mapInfoHld {
+display:none
+}
+
+/* outline around guy*/
+#classPreviewCanvas {
+  filter: drop-shadow(2px 2px var(--black)) drop-shadow(-2px -2px var(--black)) drop-shadow(-2px 2px var(--black)) drop-shadow(2px -2px var(--black));
+}
+
+#loadGamNm {
+  display: block !important;
+  left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+  font-size: 0;
+  width: 500px;
+      height: 500px;
+      line-height: 500px;
+      background: black;
+}
+
+#loadGamNm::before {
+  content: " ";
+  background: url("");
+  background-size: 1920px;
+  width: 1920px;
+  height: 1080px;
+  position: fixed;
+  bottom: 0px;
+  left: -50%;
+  top: -50%;
+}
