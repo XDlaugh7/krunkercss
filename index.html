@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JRASVBSLAS's css's!</title>
+    <style>
+        body {
+          background: linear-gradient(to bottom, black 50%, white 50%); /* Half black, half white background */
+          color: black; /* Default text color */
+          font-family: sans-serif; /* Simple sans-serif font */
+          margin: 0;
+          min-height: 100vh; /* Ensure the gradient covers the entire viewport */
+          display: flex; /* Use flexbox to control vertical alignment */
+          flex-direction: column; /* Stack children vertically */
+          padding-top: 150px; /* Add padding to push content down - adjust this value */
+          box-sizing: border-box; /* Include padding in the element's total width and height */
+        }
+
+        header {
+          background-color: black; /* Keep header background black */
+          padding: 2em 0; /* Add padding for spacing */
+          text-align: center;
+          color: white; /* Keep header text white */
+        }
+
+        header h1 {
+          font-size: 3em; /* Larger heading */
+          margin-bottom: 0.5em; /* Space below the heading */
+        }
+
+        nav {
+          display: flex; /* Use flexbox for horizontal navigation */
+          justify-content: space-around; /* Distribute links evenly */
+          background-color: black; /* Keep navigation background black */
+          padding: 1em 0;
+          margin-bottom: 20px; /* Add some space below the navigation */
+        }
+
+        nav a {
+          color: white; /* Keep navigation link text white */
+          text-decoration: none;
+          border: 1px solid white; /* Add a white border */
+          padding: 0.5em 1em; /* Add padding inside the border */
+          border-radius: 5px; /* Round the corners */
+        }
+
+        nav a:hover {
+          background-color: white; /* White background on hover */
+          color: black; /* Black text on hover */
+        }
+
+        section {
+          padding: 2em; /* Add padding around sections */
+          text-align: center; /* Center the content within sections */
+          background-color: transparent; /* Make section background transparent */
+        }
+
+        /* Initially hide all sections except the home section */
+        #about, #css, #contact {
+            display: none;
+        }
+        #musicControls {
+            position: fixed;
+            bottom: 10px; /* Adjust position */
+            left: 10px;
+            z-index: 999;
+            background-color: white; /* White background */
+            padding: 10px;
+            border-radius: 5px;
+            color: black; /* Ensure text is black against white */
+        }
+        #playPauseButton {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JRASVBSLAS's css's!</h1>
+        <p>made by XDlaugh7.</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#css">Css</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h2>This is just a home page, nothing serious</h2>
+        <p>Click "css" on the top to find the css's (duh)</p>
+    </section>
+
+    <section id="about">
+        <h2>About This Site</h2>
+        <p>This is a collection of jrasv's css's and maybe mine idk you'll have to find out, if you have any issues contact us.</p>
+    </section>
+
+    <section id="css">
+        <h2>CSS Projects</h2>
+        <p>Here’s where I’ll put the CSS's.</p>
+        <p><a href="message.txt">View jrasv cssV2</a></p>
+    </section>
+
+    <section id="contact">
+        <h2>How to Reach Us</h2>
+        <p>You can contact us using discord,jrasv's discord is <strong>sealfr0</strong> mine is <strong>doggo15</strong></p>
+        <p><a href="https://discord.com/invite/BHdNsXJxYR">server</a></p>
+    </section>
+
+    <div id="musicControls">
+        <span id="playPauseButton">Play</span>
+    </div>
+
+    <script>
+        const backgroundMusic = new Audio('Tides.mp3'); // Corrected audio filename
+        backgroundMusic.loop = true;
+        const playPauseButton = document.getElementById('playPauseButton');
+        let isPlaying = false;
+
+        playPauseButton.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                playPauseButton.textContent = 'Play';
+            } else {
+                backgroundMusic.play();
+                playPauseButton.textContent = 'Pause';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            backgroundMusic.play().catch(error => {
+                console.error("Autoplay was prevented:", error);
+                // Optionally display a message to the user to click play
+            });
+            isPlaying = true;
+            playPauseButton.textContent = 'Pause';
+        });
+
+        function showSection() {
+            const hash = window.location.hash;
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+
+                    // Remove active class from all links
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+
+                    // Show the current section and add active class to the link
+                    if (hash) {
+                        const targetSection = document.querySelector(hash);
+                        if (targetSection) {
+                            targetSection.style.display = 'block';
+                        }
+                        const activeLink = document.querySelector(`nav a[href="${hash}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    } else {
+                        // Default to showing the home section if no hash
+                        document.getElementById('home').style.display = 'block';
+                        document.querySelector('nav a[href="#home"]').classList.add('active');
+                    }
+                }
+
+                // Call showSection when the page loads and when the hash changes
+                window.onload = showSection;
+                window.addEventListener('hashchange', showSection);
+            </script>
+        </body>
+        </html>
